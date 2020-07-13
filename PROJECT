@@ -1,0 +1,7 @@
+domain: k8s.io
+repo: github.com/maoqide/sample-operator
+resources:
+- group: sampleoperator
+  kind: Foo
+  version: v1alpha1
+version: "2"

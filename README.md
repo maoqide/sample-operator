@@ -1,2 +1,0 @@
-# sample-operator
-sample operator
