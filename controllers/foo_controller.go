@@ -117,8 +117,7 @@ func (r *FooReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 		}
 	}
 	if err := r.updateFooStatus(ctx, &foo, &deployment); err != nil {
-		logger.Error(err, "update foo status failed")
-		return scheduledResult, fmt.Errorf("FoosUpdateStatusFailed")
+		return scheduledResult, err
 	}
 	return ctrl.Result{}, nil
 }

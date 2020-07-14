@@ -15,6 +15,8 @@ spec:
     plural: foos
     singular: foo
   scope: Namespaced
+  subresources:
+    status: {}
   validation:
     openAPIV3Schema:
       description: Foo is the Schema for the foos API
@@ -34,12 +36,27 @@ spec:
         spec:
           description: FooSpec defines the desired state of Foo
           properties:
-            foo:
+            deploymentName:
               description: Foo is an example field of Foo. Edit Foo_types.go to remove/update
               type: string
+            replicas:
+              format: int32
+              type: integer
+          required:
+          - deploymentName
+          - replicas
           type: object
         status:
           description: FooStatus defines the observed state of Foo
+          properties:
+            availableReplicas:
+              description: 'INSERT ADDITIONAL STATUS FIELD - define observed state
+                of cluster Important: Run "make" to regenerate code after modifying
+                this file'
+              format: int32
+              type: integer
+          required:
+          - availableReplicas
           type: object
       type: object
   version: v1alpha1
